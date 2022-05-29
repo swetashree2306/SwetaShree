@@ -6,22 +6,15 @@
 class Book:
     """Implements the Book class."""
 
-    def __init__(self, title="", author="", number_of_pages=0, is_completed=False
-                 ):
+    def __init__(self, title="", author="", number_of_pages=0, is_completed=False):
+
         self.title = title
 
         self.author = author
 
         self.number_of_pages = int(number_of_pages)
 
-        if isinstance(is_completed, bool):
-            self.is_completed = is_completed
-
-        elif is_completed in {'r', 'c'}:
-            self.is_completed = True if is_completed == 'c' else False
-
-        else:
-            raise ValueError
+        self.is_completed = is_completed
 
     def __str__(self):
         return "{}, {}, {} pages, required: {}".format(self.title, self.author, self.number_of_pages,  self.is_completed)

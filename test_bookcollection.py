@@ -1,6 +1,7 @@
 """(Incomplete) Tests for BookCollection class."""
 from bookcollection import BookCollection
 from book import Book
+import csv
 
 
 def run_tests():

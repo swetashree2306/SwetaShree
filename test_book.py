@@ -45,8 +45,7 @@ def run_tests():
     assert new_book.is_long()
     print("Passed")
 
-    # TODO: Add more tests, as appropriate
-    # Test for csv line
+
 
 
 run_tests()
