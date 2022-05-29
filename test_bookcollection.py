@@ -8,32 +8,42 @@ def run_tests():
 
     # Test empty BookCollection (defaults)
     print("Test empty BookCollection:")
-    book_collection = BookCollection()
-    print(book_collection)
-    assert not book_collection.books  # PEP 8 suggests not using len() to test for empty lists
+    all_books_list = BookCollection()
+    print(all_books_list)
+    assert not all_books_list.books
+    print("Passed")
 
     # Test loading books
     print("Test loading books:")
-    book_collection.load_books('books.csv')
-    print(book_collection)
-    assert book_collection.books  # assuming CSV file is non-empty, length should be non-zero
+    all_books_list.load_books('books.csv')
+    print(all_books_list)
 
-    # Test adding a new Book with values
+    # Test adding a new Book
     print("Test adding new book:")
-    book_collection.add_book(Book("War and Peace", "William Shakespeare", 999, False))
-    print(book_collection)
+    all_books_list.add_book(Book("Inspiring Thoughts", "Swami Vivekananda", 107, False))
+    print(all_books_list)
+    print("passed")
 
     # Test sorting books
-    print("Test sorting - author:")
-    book_collection.sort("author")
-    print(book_collection)
     # TODO: Add more sorting tests
 
     # TODO: Test get_required_pages()
+    # Test required
     print("Test get_required_pages():")
-    new_book_collection = BookCollection()
+    new_book = BookCollection()
+    new_book.add_book(Book("Inspiring Thoughts", "Swami Vivekananda", 107, False))
+    assert new_book.get_required_pages() == 107
+    assert new_book.get_num_of_required_books() == 1
+    print("Passed")
 
     # TODO: Test saving books (check CSV file manually to see results)
+
+    print("Test saving books:")
+    # 5 books sorted by pages
+    all_books_list.save_books('collection.csv')
+    # 3 books
+    new_book.save_books('books.csv')
+    print('Passed')
 
     # TODO: Add more tests, as appropriate
 
